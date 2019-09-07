@@ -1,0 +1,221 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title ">Supplier Table</h4>
+            <p class="card-category"> Here is a subtitle for this table</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Supplier name
+                  </th>
+                  <th>
+                    Code
+                  </th>
+                  <th>
+                    Contact name
+                  </th>
+                  <th>
+                    Mobile
+                  </th>
+                  <th>
+                    Email
+                  </th>
+                  <th>
+                    Address
+                  </th>
+                  <th>
+                    Type
+                  </th>
+                  <th>
+                    Discount %
+                  </th>
+                  <th>
+                    Due date
+                  </th>
+
+                  <th>
+                    Actions
+                  </th>
+
+                </thead>
+
+                <tbody *ngFor="let supplier of listOfSupliers; let i = index">
+                  <tr>
+                    <td>{{supplier.id}}</td>
+                    <td>{{supplier.supName}}</td>
+                    <td>{{supplier.code}}</td>
+                    <td>{{supplier.conName}}</td>
+                    <td>{{supplier.mobile}}</td>
+                    <td>{{supplier.email}}</td>
+                    <td>{{supplier.address}}</td>
+                    <td>{{supplier.type}}</td>
+                    <td>{{supplier.discount}}</td>
+                    <td>{{supplier.dueDate}}</td>
+                    <td>
+                      <button mat-raised-button
+                        (click)="editSupplier(supplier)"
+                        class="btn btn-info  ">EDIT</button>
+
+
+                      <button mat-raised-button
+                        (click)="deleteSupplier(supplier.id)"
+                        class="btn btn-danger  ">DELETE</button>
+                    </td>
+                  </tr>
+                </tbody>
+
+
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Save Supplier</h4>
+          <p class="card-category">create or update</p>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="submit()">
+
+            <input  
+              
+              type="hidden"
+              [(ngModel)]="supplier.id"
+              name="id">
+
+            <div class="row">
+              <div class="col-md-5">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    required
+                    [(ngModel)]="supplier.supName"
+                    name="supName"
+                    placeholder="Supplier name">
+                </mat-form-field>
+              </div>
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplier.code"
+                    name="code"
+                    placeholder="Code">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplier.conName"
+                    name="conName"
+                    placeholder="Contact name"
+                    type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput required
+                    [(ngModel)]="supplier.mobile"
+                    name="mobile"
+                    placeholder="Mobile"
+                    type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplier.email"
+                    name="email"
+                    placeholder="email"
+                    type="email">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplier.address"
+                    name="address"
+                    placeholder="Pickup Adress"
+                    type="text">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="example-full-width">
+                  <!-- update option values here -->
+                  <label for="type">Select type:</label>
+                  <select required
+                    [(ngModel)]="supplier.type"
+                    name="type"
+                    class="form-control"
+                    id="type">
+
+                    <!-- update option values here -->
+
+                    <option value="volvo">Material Supplier</option>
+                    <option value="saab">Machine Supplier</option>
+                    <option value="mercedes">Cotton Supplier</option>
+                    <option value="audi"> </option>
+
+                    <!-- update option values here -->
+                  </select>
+
+                </div>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplier.discount"
+                    name="discount"
+                    placeholder="Default discount"
+                    value="0.0%"
+                    type="text">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplier.dueDate"
+                    name="dueDate"
+                    placeholder="due date of the payment"
+                    type="date">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <button mat-raised-button type="button"
+              (click)="reset()"
+              class="btn btn-warn pull-left">RESET</button>
+
+            <button mat-raised-button
+              type="submit"
+              class="btn btn-danger pull-right">SAVE</button>
+
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+
+      
+    </div>
+
+  </div>
+
+</div>

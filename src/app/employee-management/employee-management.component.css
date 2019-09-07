@@ -1,0 +1,52 @@
+
+
+.example-button-row button,
+.example-button-row a {
+  width: 150px;
+  margin-top: 10px;
+  margin-left: 10px;
+  
+}
+
+
+
+.emp{
+  opacity: 50%;
+  background-size: 100%;
+  
+}
+
+.card1{
+  width: 75%;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+.card2{
+  
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.Search{
+  margin-top: 10px;
+  width: 100%;
+  color: white;
+  
+}
+
+.formcard{
+  background-color: rgba(44, 44, 44, 0.85);
+}
+
+.title{
+  margin-left: 10px;
+  color:black;
+}
+
+.menu{
+  color: white;
+}
+
+.md-input-container label {
+  color: white;
+}
+
+

@@ -1,0 +1,185 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title ">Supplier Invoice Table</h4>
+            <p class="card-category"> Here is a subtitle for this table</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Document Number
+                  </th>
+                  <th>
+                    Supplier Invoice Number
+                  </th>
+                  <th>
+                    Document Date
+                  </th>
+                  <th>
+                    Due Date
+                  </th>
+                  <th>
+                    Total
+                  </th>
+                  <th>
+                    Paid ?
+                  </th>
+
+                  <th>
+                    Actions
+                  </th>
+
+                </thead>
+
+                <tbody *ngFor="let inv of listOfSupliersInvoices; let i = index">
+                  <tr>
+                    <td>{{inv.id}}</td>
+                    <td>{{inv.docNumber}}</td>
+                    <td>{{inv.invNumber}}</td>
+                    <td>{{inv.docDate}}</td>
+                    <td>{{inv.dueDate}}</td>
+                    <td>{{inv.total}}</td>
+                    <td>
+                      <mat-checkbox class="example-margin" 
+                        [(ngModel)]="inv.paid"
+                        (click)="save(i,inv.paid)"
+                        
+                        >Checked</mat-checkbox>
+                    </td>
+
+                    <td>
+                      <button mat-raised-button
+                        (click)="editSupplierInvoice(inv)"
+                        class="btn btn-info  ">EDIT</button>
+
+
+                      <button mat-raised-button
+                        (click)="deleteSupplierInvoice(inv.id)"
+                        class="btn btn-danger  ">DELETE</button>
+                    </td>
+                  </tr>
+                </tbody>
+
+
+              </table>
+
+            <button mat-raised-button
+            type="button" (click)="deleteAll()"
+            class="btn btn-danger pull-right">DELETE ALL</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="card col-md-12">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">Save Invoice</h4>
+          <p class="card-category">create or update</p>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="submit()">
+
+            <input type="hidden"
+              [(ngModel)]="supplierInvoice.id"
+              name="id">
+
+            <div class="row">
+              <div class="col-md-5">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    required
+                    [(ngModel)]="supplierInvoice.docNumber"
+                    name="docNumber"
+                    placeholder="Document number">
+                </mat-form-field>
+              </div>
+              <div class="col-md-3">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplierInvoice.invNumber"
+                    name="invNumber"
+                    placeholder="Invoice number">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplierInvoice.docDate"
+                    name="conName"
+                    placeholder="Document date"
+                    type="date">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    required
+                    [(ngModel)]="supplierInvoice.dueDate"
+                    name="dueDate"
+                    placeholder="Due date"
+                    type="date">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput
+                    [(ngModel)]="supplierInvoice.total"
+                    name="total"
+                    placeholder="Total"
+                    type="number">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="example-full-width">
+                  <!-- <input  
+                    name="paid"
+                    [(ngModel)]="supplierInvoice.paid"
+                    placeholder="Total"
+                    type="checkbox"> Paid? -->
+
+                    <mat-checkbox      name="paid"
+                    [(ngModel)]="supplierInvoice.paid" > Paid ?</mat-checkbox>
+
+
+                  </div>
+              </div>
+            </div>
+
+
+
+
+            <button mat-raised-button type="button"
+              (click)="reset()"
+              class="btn btn-warn pull-left">RESET</button>
+
+            <button mat-raised-button
+              type="submit"
+              class="btn btn-danger pull-right">SAVE</button>
+
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

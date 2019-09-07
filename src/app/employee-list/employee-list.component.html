@@ -1,0 +1,71 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+    <div class="emp" style="">
+      <mat-card class="formcard">
+        <div class="menu">
+          <div class="card-header card-header-danger" style="background-color:whitesmoke">
+            <h2 class="card-title"><b> Edit Employee Information</b></h2>
+            <p class="card-category" style="color: black"> <b> Edit Employee Information</b></p>
+          </div>
+          <mat-form-field>
+            <mat-label class="Search">Search</mat-label>
+            <input matInput #term (keyup)="search(term.value)">
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+        <mat-card class="card2">
+
+          <table class="table table-md">
+            <thead>
+              <tr>
+                <th scope="col"><b>Employee ID</b></th>
+                <th scope="col"><b>Employee Name</b></th>
+                <th scope="col"><b>Department</b></th>
+                <th scope="col"><b>Designation</b></th>
+                <th scope="col"><b>Address</b></th>
+                <th scope="col"><b>Contact No</b></th>
+                <th scope="col"><b>Employee Email</b></th>
+                <th scope="col"><b>Date of Birth</b></th>
+                <th scope="col"><b>Educational Qualification</b></th>
+                <th scope="col"></th>
+
+              </tr>
+            </thead>
+
+            <ng-container *ngFor="let employee of employeeList ">
+              <tr class="table-striped">
+
+                <td>{{employee.empID}}</td>
+                <td>{{employee.empName}}</td>
+                <td>{{employee.empDept}}</td>
+                <td>{{employee.empDesignation}}</td>
+                <td>{{employee.empAddress}}</td>
+                <td>{{employee.empContact}}</td>
+                <td>{{employee.empEmail}}</td>
+                <td>{{employee.birthday}}</td>
+                <td>{{employee.empEdu}}</td>
+
+
+                <td>
+                  <a class="action-btn" style="color:rgb(36, 143, 192); cursor: pointer" (click)="onEdit(employee)">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a class="action-btn" style="color:lightcoral; cursor: pointer" (click)="deleteEmployee(employee.id)">
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+
+              </tr>
+            </ng-container>
+
+
+          </table>
+
+        </mat-card>
+
+      </mat-card>
+    </div>
+
+  </div>
+</div>

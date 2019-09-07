@@ -1,0 +1,135 @@
+
+
+<!-- Material form register
+background-image: url('assets/img/signup.jpg');
+-->
+
+<div style="background-image: url('assets/img/signin.jpg')">
+
+    <div class="container">
+      <br><br><br><br>
+    <mat-card class="example-card" style="background-color:gainsboro; background-repeat: no-repeat; background-size: cover; height: 900px">
+    
+      <mat-card-title class="text-center py-4">
+        <h2><strong><b>THE-LONDON-CUT </b></strong></h2>
+        <h2><strong><b>SIGN UP </b></strong></h2>
+      </mat-card-title>
+    
+      <hr>
+    
+      <!--Card content-->
+      <mat-card-content class="px-lg-5 pt-0">
+    
+        <!-- Form -->
+        <form class="text-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm)">
+    
+          <div class="form-row">
+            <div class="col">
+              <!-- First name -->
+              <div class="md-form">
+               
+                <mat-form-field appearance="outline" style="color: black">
+                  <mat-label style="color: black"><b>First Name</b></mat-label>
+                  <input matInput type="text" type="text" id="materialRegisterFormFirstName" formControlName="firstName" class="form-control" matInput>
+                    <mat-error>
+                      This field cannot be empty!
+                    </mat-error>
+                </mat-form-field>
+
+              </div>
+            </div>
+            <div class="col">
+              <!-- Last name -->
+              <div class="md-form">
+               
+                <mat-form-field appearance="outline" style="color: black">
+                  <mat-label style="color: black"><b>Last Name</b></mat-label>
+                  <input matInput type="text" type="text" id="materialRegisterFormLastName" formControlName="lastName" class="form-control" matInput>
+                    <mat-error>
+                      This field cannot be empty!
+                    </mat-error>
+                </mat-form-field>
+
+              </div>
+            </div>
+          </div>
+    
+          <!-- E-mail -->
+          <div class="md-form mt-0">
+
+            <mat-form-field appearance="outline" style="color: black">
+              <mat-label style="color: black"><b>Email</b></mat-label>
+              <input matInput type="email" id="materialRegisterFormEmail" formControlName="email" class="form-control" matInput>
+                <mat-error>
+                  Enter valid email!
+                </mat-error>
+            </mat-form-field>
+
+          </div>
+    
+          <!-- Password -->
+          <div class="md-form">
+          
+          <mat-form-field appearance="outline" style="color: black">
+            <mat-label style="color: black"><b>Password</b></mat-label>
+            <input matInput type="password" id="materialRegisterFormPassword" formControlName="password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" matInput>
+              <mat-error>
+                The password should have at least 8 characters!
+              </mat-error>
+          </mat-form-field>
+
+          </div>
+    
+          <!-- Confirm Password -->
+          <div class="md-form">
+        
+          <mat-form-field appearance="outline" style="color: black">
+            <mat-label style="color: black"><b>Confirm Password</b></mat-label>
+            <input matInput type="password" id="materialRegisterFormPassword" formControlName="confirmPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" matInput>
+              <mat-error>
+                Two passwords are mismatch!
+              </mat-error>
+          </mat-form-field>
+
+          </div>
+    
+          <div class="alert alert-success" role="alert" *ngIf="showSuccessMessage">
+            Registered Successfully!
+          </div>
+    
+          <div class="alert alert-danger" role="alert" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+          </div>
+    
+          <!-- Sign up button -->
+          <div class="example-button-row">
+              <button style = "color:whitesmoke" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" type="submit" style="width: 30%" [disabled]="!signUpForm.valid">
+                <mat-icon matSuffix>save_alt</mat-icon>
+                <a style="color: black"> <strong><b>Sign Up</b></strong> </a>
+              </button>
+          </div>
+    
+          <!-- Terms of service -->
+          <p style="color:black">
+            <strong>
+             <b> By clicking Sign up you agree to our </b>
+            <a href="#" target="_blank"><b>terms of service</b></a> <b>  and  </b>
+            <a href="#" target="_blank"><b>terms of service</b></a>. 
+            </strong>
+          </p>
+    
+          <p>
+            <strong><b>Already registered?</b><a [routerLink]="['/signIn']"> <b>  Login </b></a></strong>
+          </p>
+    
+        </form>
+        <!-- Form -->
+    
+      </mat-card-content>
+    
+    </mat-card>
+    </div>
+    <br><br><br><br><br>
+    </div>
+ 
+    
